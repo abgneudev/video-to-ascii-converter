@@ -1,0 +1,130 @@
+/**
+ * ASCII Hero Background Styles
+ * Optimized for performance with minimal DOM operations
+ */
+
+.ascii-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.ascii-hero__ascii {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+
+  /* Typography */
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: clamp(6px, 1vw, 12px);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  white-space: pre;
+
+  /* Centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Aesthetics */
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+  /* Performance */
+  will-change: contents;
+  contain: content;
+
+  /* Fade in */
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.ascii-hero__ascii--visible {
+  opacity: 1;
+}
+
+.ascii-hero__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Ensure readability over ASCII */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.6) 0%,
+    transparent 70%
+  );
+}
+
+.ascii-hero__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Colored ASCII - when using spans */
+.ascii-hero__ascii span {
+  /* Prevent layout thrashing */
+  display: inline;
+}
+
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .ascii-hero__ascii {
+    font-size: 5px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ascii-hero__ascii {
+    font-size: 4px;
+  }
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .ascii-hero__ascii {
+    /* Animation handled in JS, but ensure no CSS transitions */
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .ascii-hero__ascii {
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  .ascii-hero__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Dark mode (already dark, but explicit) */
+@media (prefers-color-scheme: dark) {
+  .ascii-hero {
+    background: #0a0a0a;
+  }
+}
+
+/* Light mode variant */
+@media (prefers-color-scheme: light) {
+  .ascii-hero--light {
+    background: #fafafa;
+  }
+
+  .ascii-hero--light .ascii-hero__ascii {
+    color: rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Hero Background Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    .demo-content {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .demo-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .demo-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .demo-content button {
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      background: #00d4aa;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .demo-content button:hover {
+      background: #00ffcc;
+      transform: scale(1.05);
+    }
+
+    /* Instructions section below hero */
+    .instructions {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #141414;
+      border-radius: 12px;
+    }
+
+    .instructions h2 {
+      margin-bottom: 1rem;
+      color: #00d4aa;
+    }
+
+    .instructions pre {
+      background: #0a0a0a;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'SF Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .instructions code {
+      color: #00d4aa;
+    }
+
+    .instructions p {
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Demo Container -->
+  <div id="hero-demo"></div>
+
+  <!-- Usage Instructions -->
+  <section class="instructions">
+    <h2>Usage</h2>
+    <p>This demo shows a procedurally generated animation. For production use, preprocess your video:</p>
+
+    <h3>1. Install the preprocessor</h3>
+    <pre><code>cd preprocessor
+npm install
+npm run build</code></pre>
+
+    <h3>2. Process your video</h3>
+    <pre><code>npx ascii-process \
+  --input hero-video.mp4 \
+  --output public/ascii-data/hero.bin \
+  --cols 120 \
+  --fps 24 \
+  --color-mode mono</code></pre>
+
+    <h3>3. Use in your site</h3>
+    <pre><code>import { ASCIIHero } from './components/ASCIIHero';
+import './components/ASCIIHero/ASCIIHero.css';
+
+const hero = new ASCIIHero('#hero', {
+  src: '/ascii-data/hero.bin',
+  fadeIn: true,
+  speed: 1
+});
+
+// Set overlay content
+hero.setOverlay(`
+  &lt;h1&gt;Your Brand&lt;/h1&gt;
+  &lt;p&gt;Tagline here&lt;/p&gt;
+`);</code></pre>
+
+    <h3>File Size Comparison</h3>
+    <p>For a 10-second loop at 24fps:</p>
+    <pre><code>Original MP4:    ~500KB - 2MB
+ASCII Binary:    ~50-150KB (gzipped)
+Runtime CPU:     &lt;5% (vs 30-50% for real-time)</code></pre>
+  </section>
+
+  <script type="module" src="/src/demo/hero-demo.ts"></script>
+</body>
+</html>

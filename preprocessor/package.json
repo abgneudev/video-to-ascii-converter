@@ -1,0 +1,22 @@
+{
+  "name": "ascii-preprocessor",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "ascii-process": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "commander": "^12.1.0",
+    "fluent-ffmpeg": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.26",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.9.3"
+  }
+}
