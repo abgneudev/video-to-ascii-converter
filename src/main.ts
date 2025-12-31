@@ -135,7 +135,6 @@ class ASCIIVideoConverter {
 
     this.outputElement = document.getElementById('ascii-output') as HTMLPreElement;
     this.canvasElement = document.getElementById('ascii-canvas') as HTMLCanvasElement;
-    this.outputContainer = document.getElementById('output-container') as HTMLElement;
 
     // Setup drop zone
     const dropzoneContainer = document.getElementById('dropzone-container');
