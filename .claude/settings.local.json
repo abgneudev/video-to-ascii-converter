@@ -9,7 +9,13 @@
       "Bash(npx vite --version)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(npm pack:*)"
     ]
   }
 }

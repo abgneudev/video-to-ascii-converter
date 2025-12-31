@@ -20,7 +20,6 @@ class ASCIIVideoConverter {
   private controls: Controls | null = null;
   private outputElement: HTMLPreElement | null = null;
   private canvasElement: HTMLCanvasElement | null = null;
-  private outputContainer: HTMLElement | null = null;
   private currentFrame: ASCIIFrame | null = null;
   private videoLoaded = false;
   private currentColorMode: 'mono' | 'color' | 'palette' = 'mono';
@@ -32,6 +31,7 @@ class ASCIIVideoConverter {
 
   // Frame tracking
   private frameSkipCount = 0;
+  private lastRenderTime = 0;
 
   constructor() {
     this.videoProcessor = new VideoProcessor();
