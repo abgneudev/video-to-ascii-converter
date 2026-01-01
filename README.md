@@ -2,7 +2,7 @@
 
 A high-performance, real-time video-to-ASCII art converter that runs entirely in the browser. Convert any video into animated ASCII art with customizable character sets and color modes.
 
-**[Live Demo →]([https://ascii-video.vercel.app](https://video-to-ascii-converter-jii4.vercel.app/))**
+**[Live Demo →]([https://ascii-video.vercel.app](https://video-to-ascii-converter-jii4.vercel.app/])**
 
 ![ASCII Video Converter Screenshot](screenshot.png)
 
